@@ -23,9 +23,9 @@ import javax.websocket.Session;
 
 import org.bson.Document;
  
- @WebServlet("/jsp/authenticate")
+ @WebServlet("/jsp/register_faculty")
  
-public class authenticate extends HttpServlet { 
+public class register_faculty extends HttpServlet { 
 	private static final long serialVersionUID = 1L;
 	
 	//the statements to connect to the default mongo server instance running at localhost with default port..
@@ -34,13 +34,10 @@ public class authenticate extends HttpServlet {
 	MongoDatabase database = mongoClient.getDatabase("Renumeration"); //mention the name of the database which you have created in place of the name "demo"
 	MongoCollection<Document> collection = database.getCollection("admin_faculty"); //mention the collection where you are storing the user credential details in place of "users"
 	
-	
-    public authenticate() {
+    public register_faculty() {
         super();
     }
 
-    
-    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//response.getWriter().append("Served at get request ");
 		//doPost(request, response);
@@ -52,35 +49,29 @@ public class authenticate extends HttpServlet {
 		//fetching the username and password from the user input with names "username" and "password" which is present in the login.jsp page
 		
 		
-		String u_name = request.getParameter("username");
-		String pwd = request.getParameter("password");
+		String firstname = request.getParameter("firstname");
+		String lastname = request.getParameter("lastname");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
+		String department = request.getParameter("department");
+		String password = request.getParameter("password");
 		
 		
-		if (collection.find(and(eq("email", u_name), eq("password", pwd), eq("type", "admin"))).iterator().hasNext()) {  
-			
-			
-				request.getSession().setAttribute("user", u_name);
-				response.sendRedirect("register_faculty.jsp");
-				
-			
-			
-		}
-		else if (collection.find(and(eq("email", u_name), eq("password", pwd), eq("type", "faculty"))).iterator().hasNext()) {  
-			
-			
-			request.getSession().setAttribute("user",u_name);
-			response.sendRedirect("activities.jsp");
-			
+		Document faclt = new Document();
+		faclt.put("type", "faculty");
 		
+		faclt.put("firstname", firstname);
+		faclt.put("lastname", lastname);
+		faclt.put("email", email);
+		faclt.put("phone", phone);
+		faclt.put("department", department);
+		faclt.put("password", password);
+		
+        collection.insertOne(faclt);
+        response.sendRedirect("register_faculty.jsp");
 		
 	}
-		else
-		{
-			//redirect back to the login page 
-			
-			response.sendRedirect("login_main.jsp");
-		}
-	}
+	
 	
 
 	

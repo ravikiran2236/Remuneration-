@@ -23,24 +23,23 @@ import javax.websocket.Session;
 
 import org.bson.Document;
  
- @WebServlet("/jsp/authenticate")
+ @WebServlet("/jsp/report")
  
-public class authenticate extends HttpServlet { 
+public class report extends HttpServlet { 
 	private static final long serialVersionUID = 1L;
 	
 	//the statements to connect to the default mongo server instance running at localhost with default port..
 	
 	MongoClient mongoClient = MongoClients.create();
 	MongoDatabase database = mongoClient.getDatabase("Renumeration"); //mention the name of the database which you have created in place of the name "demo"
-	MongoCollection<Document> collection = database.getCollection("admin_faculty"); //mention the collection where you are storing the user credential details in place of "users"
+	MongoCollection<Document> collection = database.getCollection("question_paper_setting"); //mention the collection where you are storing the user credential details in place of "users"
 	
 	
-    public authenticate() {
+	
+    public report() {
         super();
     }
 
-    
-    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//response.getWriter().append("Served at get request ");
 		//doPost(request, response);
@@ -51,36 +50,33 @@ public class authenticate extends HttpServlet {
 		
 		//fetching the username and password from the user input with names "username" and "password" which is present in the login.jsp page
 		
+	
+		//String user_name = request.getParameter("user_name");
 		
-		String u_name = request.getParameter("username");
-		String pwd = request.getParameter("password");
+		String user_name = request.getParameter("user_name");
+		System.out.println("Username  Q= " +user_name);
+		Document myDoc = collection.find(in("user_name", user_name)).first();
+		//Document myDoc = collection.find().first();
+		//Document myDoc = collection.find(regex("subject_code1", "SE_")).first().projection(fields(include("subject_code1"), excludeId()));
+		//Document myDoc =  collection.find(regex("subject_code1", "SE_")).first();
+		//Document myDoc = collection.find(regex("subject_code1", "SE_")).first().projection(new Document("subject_code1" , 1));
+		
+		String report_str= myDoc.toString(); 
+		
+		System.out.println("Question paper setting" +report_str);
+			
+			response.getWriter().append(report_str);
+		
+			//request.getSession().setAttribute("user", report_str);
+			//response.sendRedirect("report.jsp");
+			
 		
 		
-		if (collection.find(and(eq("email", u_name), eq("password", pwd), eq("type", "admin"))).iterator().hasNext()) {  
-			
-			
-				request.getSession().setAttribute("user", u_name);
-				response.sendRedirect("register_faculty.jsp");
-				
-			
-			
-		}
-		else if (collection.find(and(eq("email", u_name), eq("password", pwd), eq("type", "faculty"))).iterator().hasNext()) {  
-			
-			
-			request.getSession().setAttribute("user",u_name);
-			response.sendRedirect("activities.jsp");
-			
-		
+	
+        
 		
 	}
-		else
-		{
-			//redirect back to the login page 
-			
-			response.sendRedirect("login_main.jsp");
-		}
-	}
+	
 	
 
 	

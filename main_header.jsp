@@ -22,10 +22,7 @@
       
     </ul>
      <ul class="nav navbar-nav navbar-right">
-      <li class="main_menu"><a href="activities.jsp" class="menu_hd">Activities</a></li>
-      <li class="main_menu"><a href="report.jsp" class="menu_hd">Report</a></li>
-      <li class="main_menu"><a href="change_password.jsp" class="menu_hd">Change Password</a></li>
-      <li class="main_menu"><a href="logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      
     </ul>
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>

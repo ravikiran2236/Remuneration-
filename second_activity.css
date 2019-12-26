@@ -1,0 +1,105 @@
+#subject_code2 { 
+  display:none;
+ }
+ #subject_code3 { 
+  display:none;
+ }
+ #subject_code4 { 
+  display:none;
+ }
+ #subject_code5 { 
+  display:none;
+ }
+ #subject_code6 { 
+  display:none;
+ }
+ 
+ #add_textfields2 { 
+  display:none;
+ }
+ #user_name { 
+  display:none;
+ }
+ #second_activity {
+ 	display:none;
+ }
+  #add_exam_subject2 {
+ 	display:none;
+ }
+ .button_full {
+ 	width:100%;
+ }
+ #third_activity {
+ 	display:none;
+ }
+ #project_works {
+ 	display:none;
+ }
+ #exam_type_2 {
+ 	display:none;
+ 	
+ }
+ #exam_type_3 {
+ 	display:none;
+ 	
+ }
+  #add_exam_activity2 {
+ 	display:none;
+ }
+ #add_exam_subject_two1 {
+ 	display:none;
+ }
+ #add_exam_subject_two2 {
+ 	display:none;
+ }
+ #second_activity_2 {
+ 	display:none;
+ }
+ #third_activity_3{
+ 	display:none;
+ }
+ 
+ 
+ #add_exam_subject_three1{
+ 	display:none;
+ }
+ #add_exam_subject_three2{
+ 	display:none;
+ }
+ #second_activity_22{
+ 	display:none;
+ }
+ #third_activity_33{
+ 	display:none;
+ }
+.hr_color {
+	 top: 20px; 
+     border: none; 
+     height: 12px; 
+     background-image:linear-gradient(#F4F6F9, #839CA4);
+     margin-bottom: 50px; 
+}
+ 
+ 
+/* activity css is here */
+
+#que_id1 {
+	display:none;
+} 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

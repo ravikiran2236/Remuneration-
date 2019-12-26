@@ -23,9 +23,9 @@ import javax.websocket.Session;
 
 import org.bson.Document;
  
- @WebServlet("/jsp/authenticate")
+ @WebServlet("/jsp/change_password")
  
-public class authenticate extends HttpServlet { 
+public class change_password extends HttpServlet { 
 	private static final long serialVersionUID = 1L;
 	
 	//the statements to connect to the default mongo server instance running at localhost with default port..
@@ -35,7 +35,7 @@ public class authenticate extends HttpServlet {
 	MongoCollection<Document> collection = database.getCollection("admin_faculty"); //mention the collection where you are storing the user credential details in place of "users"
 	
 	
-    public authenticate() {
+    public change_password() {
         super();
     }
 
@@ -52,34 +52,16 @@ public class authenticate extends HttpServlet {
 		//fetching the username and password from the user input with names "username" and "password" which is present in the login.jsp page
 		
 		
-		String u_name = request.getParameter("username");
-		String pwd = request.getParameter("password");
+		String u_name = request.getParameter("email");
+		String password = request.getParameter("password");
 		
-		
-		if (collection.find(and(eq("email", u_name), eq("password", pwd), eq("type", "admin"))).iterator().hasNext()) {  
-			
-			
-				request.getSession().setAttribute("user", u_name);
-				response.sendRedirect("register_faculty.jsp");
-				
-			
-			
-		}
-		else if (collection.find(and(eq("email", u_name), eq("password", pwd), eq("type", "faculty"))).iterator().hasNext()) {  
-			
-			
-			request.getSession().setAttribute("user",u_name);
-			response.sendRedirect("activities.jsp");
-			
-		
-		
-	}
-		else
-		{
-			//redirect back to the login page 
-			
-			response.sendRedirect("login_main.jsp");
-		}
+		Document myDoc = collection.find(eq("email", u_name)).first();
+		System.out.println(myDoc.toJson());
+		collection.updateOne(eq("email", u_name), new Document("$set", new Document("password", password)));
+		System.out.println("Password changed successfully");
+		request.getSession().setAttribute("user", u_name);
+		response.sendRedirect("change_password.jsp");
+
 	}
 	
 

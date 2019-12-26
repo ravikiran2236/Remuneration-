@@ -12,13 +12,31 @@
          rel="stylesheet" type="text/css">
 <title>Login</title>
 
-<jsp:include page="/jsp/main_header.jsp"></jsp:include>
+<jsp:include page="/jsp/admin_header.jsp"></jsp:include>
+<script>
+$(document).ready(function(){
+	
+	$('#username, #password').bind('keyup', function() {
+	    if(allFilled()) $('#login_id').removeAttr('disabled');
+	});
+
+	function allFilled() {
+	    var filled = true;
+	    $('body input').each(function() {
+	        if($(this).val() == '') filled = false;
+	    });
+	    return filled;
+	}
+	
+		
+});
+</script>
 </head>
-<body class="main_body">
+<body>
 
 
 
-	<div class="container-fluid"><br><br><br><br><br><br>   
+	<div class="container-fluid"><br>   
     <div class="row">
         <div class="col-sm-3">           
         </div>
@@ -31,13 +49,15 @@
                             <div class="col-sm-2">
                             </div>
                             <div class="col-sm-8">
-                                <form name="loginForm" action="authenticate" method="post" >
+                                <form name="loginForm" action="login_faculty" method="post" >
                                 
                                 <div class="row">             
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            
-                                          <input type="text" placeholder="Username or Email Address " id="username" name = "username" class="form-control" >
+                                            <div class="col-sm-12 ">
+                                            <span class="labellogin">Email</span>
+                                            </div>
+                                          <input type="text"  id="username" name = "username" class="form-control" >
                                         </div>                                        
                                         <br>                                     
                                     </div>
@@ -46,20 +66,31 @@
                              
                              
                                 <div class="row">             
-                                    
+                                    <div class="col-sm-6 ">
+                                        <span class="labellogin">Password</span>                                       
+                                    </div>
+                                 
+                                    <div class="col-sm-6 text-right ">
+                                         
+										 <span class="labellogin redcolor" style="cursor: pointer;" target="_blank" onclick="openForgotPass()"><span class="redcolor">Forgot Password?</span></span>
+                                    </div>
                                  
                                     <div class="col-sm-12">
                                         <div class="form-group">                                   
-                                          <input type="password" placeholder="Password" name = "password" required class="form-control"  id="password" />
+                                          <input type="password" name = "password" required class="form-control"  id="password" />
                                         </div>                                       
                                     </div>                   
                                 </div>
                                
                                 <div class="row">
-                                     <div class="col-sm-12 ">
-                                        <button  type="Submit" class=" btn btn-login btn-block "  value="Submit" id="login_id"><span class="buttontext">Login</span></button>                                       
+                                   
+                                    <div class="col-sm-4 ">
+                                        <button  type="Submit" class=" btn btn-login btn-block " disabled value="Submit" id="login_id"><span class="buttontext">Login</span></button>                                       
                                     </div>                                   
-                                    
+                                    <div class="col-sm-8">                  
+                                        <span   id="register"><button type="button" class=" btn btn-createacc btn-block" onclick="openRegis()"> <span class="buttontext">Create an Account</span></button></a></span>            
+										
+									</div>
                                    
                                 </div><br>                          
                                </form>
@@ -68,7 +99,7 @@
 							   
                                 <div class="row">
                                     <div class="col-sm-12 ">
-                                         <a><center><span class="needassist">Forgot your password</span> </center> </a>                   
+                                         <i> <span class="needassist">Need assistance? Contact us <span class="redcolor"><a class="redcolor" href="mailto:placement@msrit.edu">here</a></span> or call <span class="redcolor">(080) 2360 4979</span></span>    </i>                     
                                     </div>
                                 </div>
    
@@ -84,7 +115,7 @@
            
         </div>
     </div>
-   <br><br><br><br><br> <br><br>
+   
 </div>
 
 

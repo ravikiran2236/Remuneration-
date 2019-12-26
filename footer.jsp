@@ -15,14 +15,13 @@
 </head>
 <body>
 
-<div class="container-fluid navbar-inverse">	
-	<div class="row">
-		<div class="col-sm-3">
-		</div>
-		<div class="col-sm-6 ">
-			<div class="row">
+<div class="container-fluid navbar-inverse footer_fixed">	
+	<div class="row " >
+		
+		<div class="col-sm-12 ">
+			<div class="row text-center">
 				<div class="col-sm-12">
-					<p class="footer_text" style="margin-top:10px;color:#6C7582">2017 © Ramaiah Institute of Technology, All Rights Reserved.</p>
+					<p class="footer_text" style="margin-top:10px;color:#6C7582;">2017 © Ramaiah Institute of Technology, All Rights Reserved.</p>
 				</div>
 			</div>
 		</div>

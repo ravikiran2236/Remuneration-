@@ -18,14 +18,14 @@
 </head>
 <body class="main_body">
 	
-	<div class="container-fluid"><br><br><br><br><br>
+	<div class="container-fluid"><br>
 	   
-    <div class="row">
+    <div class="row user_id_row">
        	<div class="col-sm-5">
   			 </div>             
            <div class="col-sm-2">
                <div class="form-group">                                            
-                   <p class="page_heading"><b>Report</b></p>                                           
+                                                        
                  <input type="text" id="user_name" name="user_name" value="<% out.println(session.getAttribute("user")); %>" class="form-control"  placeholder="Subject Code" >
                </div>                        
                                                   
@@ -33,7 +33,21 @@
            <div class="col-sm-2">
   			 </div>
                       
-       </div><br><br> 
+       </div>
+       <div class="row">
+       	<div class="col-sm-5">
+  			 </div>             
+           <div class="col-sm-2">
+               <div class="form-group">                                            
+                   <p class="page_heading"><b>Report</b></p>                                           
+                 
+               </div>                        
+                                                  
+           </div>
+           <div class="col-sm-2">
+  			 </div>
+                      
+       </div><br> 
     <div class="row" id="print_data">
     	
     	<div class="col-sm-1">
@@ -52,17 +66,59 @@
 		    <tbody>
 		      <tr class="table_row">
 		        <td><b>Question paper setting</b></td>
-		        <td class=""><span  class="separate_sub Que_SE1"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span  class="separate_sub Que_SE2"> </span></td>
-		        <td class=""><span  class="separate_sub Que_MU1"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span  class="separate_sub Que_MU2"> </span></td>
-		        <td class=""><span  class="separate_sub Que_SP1"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span  class="separate_sub Que_SP2"></td>
+		        <td class=""><span  class="separate_sub Que_SE1"></span></td>
+		        <td class=""><span  class="separate_sub Que_MU1"></span></td>
+		        <td class=""><span  class="separate_sub Que_SP1"></span></td>
 		        <td class=""><span  class="separate_sub que_total"></span></td>
 		      </tr> 
 		      <tr class="table_row">
 		        <td><b>Scheme and Solution</b></td>
-		        <td class=""><span  class="separate_sub SS_SE1"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span  class="separate_sub SS_SE2"> </span></td>
-		        <td class=""><span  class="separate_sub SS_MU1"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span  class="separate_sub SS_MU2"> </span></td>
-		        <td class=""><span  class="separate_sub SS_SP1"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span  class="separate_sub SS_SP2"></td>
+		        <td class=""><span  class="separate_sub SS_SE1"></span></td>
+		        <td class=""><span  class="separate_sub SS_MU1"></span></td>
+		        <td class=""><span  class="separate_sub SS_SP1"></span></td>
 		        <td class=""><span  class="separate_sub SS_total"></span></td>
+		      </tr>
+		      <tr class="table_row">
+		        <td><b>Valuation and Moderation</b></td>
+		        <td class=""><span  class="separate_sub VM_SE1"></span></td>
+		        <td class=""><span  class="separate_sub VM_MU1"></span></td>
+		        <td class=""><span  class="separate_sub VM_SP1"></span></td>
+		        <td class=""><span  class="separate_sub VM_total"></span></td>
+		      </tr>
+		      <tr class="table_row">
+		        <td><b>Grade Review Valuation</b></td>
+		        <td class=""><span  class="separate_sub GR_SE1"></span></td>
+		        <td class=""><span  class="separate_sub GR_MU1"></span></td>
+		        <td class=""><span  class="separate_sub GR_SP1"></span></td>
+		        <td class=""><span  class="separate_sub GR_total"></span></td>
+		      </tr>
+		      <tr class="table_row">
+		        <td><b>Project Evaluations</b></td>
+		        <td class=""><span  class="separate_sub PE_SE1"></span></td>
+		        <td class=""><span  class="separate_sub PE_MU1"></span></td>
+		        <td class=""><span  class="separate_sub PE_SP1"></span></td>
+		        <td class=""><span  class="separate_sub PE_total"></span></td>
+		      </tr>
+		      <tr class="table_row">
+		        <td><b>BOS</b></td>
+		        <td class=""><span  class="separate_sub BS_SE1"></span></td>
+		        <td class=""><span  class="separate_sub BS_MU1"></span></td>
+		        <td class=""><span  class="separate_sub BS_SP1"></span></td>
+		        <td class=""><span  class="separate_sub BS_total"></span></td>
+		      </tr>
+		      <tr class="table_row">
+		        <td><b>BOE</b></td>
+		        <td class=""><span  class="separate_sub BE_SE1"></span></td>
+		        <td class=""><span  class="separate_sub BE_MU1"></span></td>
+		        <td class=""><span  class="separate_sub BE_SP1"></span></td>
+		        <td class=""><span  class="separate_sub BE_total"></span></td>
+		      </tr>
+		      <tr class="table_row">
+		        <td><b>Squad Duty</b></td>
+		        <td class=""><span  class="separate_sub SD_SE1"></span></td>
+		        <td class=""><span  class="separate_sub SD_MU1"></span></td>
+		        <td class=""><span  class="separate_sub SD_SP1"></span></td>
+		        <td class=""><span  class="separate_sub SD_total"></span></td>
 		      </tr>
 		      
 		      <tr class="table_row">
